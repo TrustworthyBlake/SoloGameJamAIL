@@ -29,8 +29,35 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+
+	// Custom logic
 	UPROPERTY(EditAnywhere, Category = "shooting")
 	TSubclassOf<class Abullet> BPbullet;
+
+	// Player health
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "health")
+	float maxPlayerHP;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "health")
+	float currentPlayerHP;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "health")
+	float tempPlayerHP;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "health")
+	float playerHPpercent;
+
+	UFUNCTION(BlueprintPure, Category = "health")
+	float getPlayerHP();
+
+	UFUNCTION(BlueprintCallable, Category = "health")
+	void updatePlayerHP(float HP);
+
+	//UFUNCTION()
+	//void setPlayerDamage();
+
+	UFUNCTION()
+	void playerReceiveDamage(float damage);
 
 protected:
 
@@ -67,6 +94,9 @@ protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
+
+	// Custom logic
+	virtual void BeginPlay();
 
 public:
 	/** Returns CameraBoom subobject **/

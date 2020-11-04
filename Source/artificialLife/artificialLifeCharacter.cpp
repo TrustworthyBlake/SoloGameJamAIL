@@ -149,3 +149,29 @@ void AartificialLifeCharacter::MoveRight(float Value)
 		AddMovementInput(Direction, Value);
 	}
 }
+
+void AartificialLifeCharacter::BeginPlay() {
+	// Call the base class  
+	Super::BeginPlay();
+
+	maxPlayerHP = 100.0f;
+	currentPlayerHP = maxPlayerHP;
+	playerHPpercent = 1.0f;
+
+}
+
+float AartificialLifeCharacter::getPlayerHP() {
+	return playerHPpercent;
+}
+
+void AartificialLifeCharacter::updatePlayerHP(float HP) {
+	currentPlayerHP += HP;
+	currentPlayerHP = FMath::Clamp(currentPlayerHP, 0.0f, maxPlayerHP);
+	tempPlayerHP = playerHPpercent;
+	playerHPpercent = currentPlayerHP / maxPlayerHP;
+}
+
+void AartificialLifeCharacter::playerReceiveDamage(float damage) {
+	updatePlayerHP(-damage);
+}
+
