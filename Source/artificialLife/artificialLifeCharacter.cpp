@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "bullet.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AartificialLifeCharacter
@@ -57,6 +58,8 @@ void AartificialLifeCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
+	PlayerInputComponent->BindAction("Shoot", IE_Pressed, this, &AartificialLifeCharacter::shoot);
+
 	PlayerInputComponent->BindAxis("MoveForward", this, &AartificialLifeCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AartificialLifeCharacter::MoveRight);
 
@@ -76,6 +79,20 @@ void AartificialLifeCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AartificialLifeCharacter::OnResetVR);
 }
 
+
+void AartificialLifeCharacter::shoot()
+{
+	UE_LOG(LogTemp, Warning, TEXT("shoot pressed"));
+
+	FTransform SpawnTransform = GetActorTransform();
+	//SpawnTransform.TransformPosition(FVector(0.0f, 0.0f, 100.0f));
+
+	SpawnTransform.SetLocation(FollowCamera->GetComponentRotation().Vector() * 200.0f + GetActorLocation());
+
+	FActorSpawnParameters SpawnParams;
+
+	GetWorld()->SpawnActor<Abullet>(BPbullet, SpawnTransform, SpawnParams);
+}
 
 void AartificialLifeCharacter::OnResetVR()
 {

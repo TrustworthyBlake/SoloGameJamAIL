@@ -15,8 +15,11 @@ public:
 	// Sets default values for this actor's properties
 	Abullet();
 
-	UPROPERTY(EditAnywhere, category = "Componets")
+	UPROPERTY(EditAnywhere, category = "Components")
 	class UStaticMeshComponent* bulletMesh;
+
+	UPROPERTY(EditAnywhere, category = "Components")
+	class UProjectileMovementComponent* bulletMovement;
 
 protected:
 	// Called when the game starts or when spawned

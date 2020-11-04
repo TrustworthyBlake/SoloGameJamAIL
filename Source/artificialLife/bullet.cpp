@@ -3,6 +3,7 @@
 
 #include "bullet.h"
 #include "Components/StaticMeshComponent.h"
+#include "GameFramework/ProjectileMovementComponent.h"
 
 // Sets default values
 Abullet::Abullet()
@@ -11,6 +12,11 @@ Abullet::Abullet()
 	PrimaryActorTick.bCanEverTick = true;
 
 	bulletMesh = CreateDefaultSubobject<UStaticMeshComponent>("bulletMesh");
+	SetRootComponent(bulletMesh);
+
+	bulletMovement = CreateDefaultSubobject<UProjectileMovementComponent>("bulletMovement");
+	bulletMovement->InitialSpeed = 5000.f;
+	bulletMovement->MaxSpeed = 5000.f;
 }
 
 // Called when the game starts or when spawned
