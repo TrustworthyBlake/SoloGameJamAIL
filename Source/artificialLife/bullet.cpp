@@ -17,6 +17,7 @@ Abullet::Abullet()
 	bulletMovement = CreateDefaultSubobject<UProjectileMovementComponent>("bulletMovement");
 	bulletMovement->InitialSpeed = 5000.f;
 	bulletMovement->MaxSpeed = 5000.f;
+	bulletMovement->ProjectileGravityScale = 0.0f;
 }
 
 // Called when the game starts or when spawned
