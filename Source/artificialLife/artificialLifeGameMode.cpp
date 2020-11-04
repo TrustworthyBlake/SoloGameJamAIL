@@ -11,5 +11,10 @@ AartificialLifeGameMode::AartificialLifeGameMode()
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
+		//HUDClass = AplayerHUD::StaticClass();
+		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Hello World, this is FPSGameMode!"));
 	}
+
+	//HUDClass = AplayerHUD::StaticClass();
+
 }
