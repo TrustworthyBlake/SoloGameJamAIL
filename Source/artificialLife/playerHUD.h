@@ -17,12 +17,23 @@ class ARTIFICIALLIFE_API AplayerHUD : public AHUD
 
 
 public:
+	AplayerHUD();
+
 	// Primary draw call for the HUD.
 	virtual void DrawHUD() override;
+
+	virtual void BeginPlay() override;
 
 protected:
 	// This will be drawn at the center of the screen.
 	UPROPERTY(EditDefaultsOnly)
 		UTexture2D* CrosshairTexture;
 	
+private:
+	
+	UPROPERTY(EditAnywhere, Category = "health")
+	TSubclassOf<class UUserWidget> HUDWidgetClass;
+
+	UPROPERTY(EditAnywhere, Category = "health")
+	class UUserWidget* playerHPWidget;
 };

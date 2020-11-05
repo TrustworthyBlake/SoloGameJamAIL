@@ -157,7 +157,6 @@ void AartificialLifeCharacter::BeginPlay() {
 	maxPlayerHP = 100.0f;
 	currentPlayerHP = maxPlayerHP;
 	playerHPpercent = 1.0f;
-
 }
 
 float AartificialLifeCharacter::getPlayerHP() {
@@ -169,9 +168,10 @@ void AartificialLifeCharacter::updatePlayerHP(float HP) {
 	currentPlayerHP = FMath::Clamp(currentPlayerHP, 0.0f, maxPlayerHP);
 	tempPlayerHP = playerHPpercent;
 	playerHPpercent = currentPlayerHP / maxPlayerHP;
+	UE_LOG(LogTemp, Warning, TEXT("hp should update"));
 }
 
-void AartificialLifeCharacter::playerReceiveDamage(float damage) {
+void AartificialLifeCharacter::playerTakeDamage(float damage) {
 	updatePlayerHP(-damage);
 }
 

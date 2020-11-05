@@ -57,7 +57,7 @@ public:
 	//void setPlayerDamage();
 
 	UFUNCTION()
-	void playerReceiveDamage(float damage);
+	void playerTakeDamage(float damage);
 
 protected:
 

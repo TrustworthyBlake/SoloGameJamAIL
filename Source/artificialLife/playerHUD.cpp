@@ -4,11 +4,21 @@
 #include "playerHUD.h"
 //#include "Engine/Canvas.h"
 #include "Engine/Font.h"
+#include "Blueprint/UserWidget.h"
+#include "UObject/ConstructorHelpers.h"
+#include "CanvasItem.h"
+
+
+AplayerHUD::AplayerHUD() {
+    static ConstructorHelpers::FClassFinder<UUserWidget> HealthBarObj(TEXT("/Game/playerHUD/playerHPbar"));
+    HUDWidgetClass = HealthBarObj.Class;
+}
+
 
 // Code from unreals crosshair tutorial documentation
 void AplayerHUD::DrawHUD() {
     Super::DrawHUD();
-    UE_LOG(LogTemp, Warning, TEXT("playerHUD start"));
+    //UE_LOG(LogTemp, Warning, TEXT("playerHUD start"));
     if (CrosshairTexture)
     {
         // Find the center of our canvas.
@@ -21,6 +31,20 @@ void AplayerHUD::DrawHUD() {
         FCanvasTileItem TileItem(CrossHairDrawPosition, CrosshairTexture->Resource, FLinearColor::White);
         TileItem.BlendMode = SE_BLEND_Translucent;
         Canvas->DrawItem(TileItem);
-        UE_LOG(LogTemp, Warning, TEXT("playerHUD start inside IF"));
+        //UE_LOG(LogTemp, Warning, TEXT("playerHUD start inside IF"));
+    }
+
+}
+
+void AplayerHUD::BeginPlay() {
+
+    Super::BeginPlay();
+
+    if (HUDWidgetClass != nullptr) {
+        playerHPWidget = CreateWidget<UUserWidget>(GetWorld(), HUDWidgetClass);
+
+        if (playerHPWidget) {
+            playerHPWidget->AddToViewport();
+        }
     }
 }
