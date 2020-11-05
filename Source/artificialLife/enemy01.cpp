@@ -2,6 +2,9 @@
 
 
 #include "enemy01.h"
+#include "Blueprint/UserWidget.h"
+#include "UObject/ConstructorHelpers.h"
+#include "CanvasItem.h"
 
 // Sets default values
 Aenemy01::Aenemy01()
@@ -9,6 +12,8 @@ Aenemy01::Aenemy01()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	//static ConstructorHelpers::FClassFinder<UUserWidget> HealthBarObj(TEXT("/Game/enemyUI/enemyHPbar"));
+	//HUDWidgetClass2 = HealthBarObj.Class;
 }
 
 // Called when the game starts or when spawned
@@ -20,6 +25,13 @@ void Aenemy01::BeginPlay()
 	currentEnemyHP = maxEnemyHP;
 	enemyHPpercent = 1.0f;
 	
+	/*if (HUDWidgetClass2 != nullptr) {
+		enemyHPWidget = CreateWidget<UUserWidget>(GetWorld(), HUDWidgetClass2);
+
+		if (enemyHPWidget) {
+			enemyHPWidget->AddToViewport();
+		}
+	}*/
 }
 
 // Called every frame

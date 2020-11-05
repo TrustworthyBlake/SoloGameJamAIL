@@ -38,8 +38,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "health")
 		void updateEnemyHP(float HP);
 
-	UFUNCTION()
-		void enemyTakeDamage(float damage);
+	UFUNCTION(BlueprintCallable, Category = "health")
+	void enemyTakeDamage(float damage);
 
 
 protected:
@@ -52,5 +52,12 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+private:
+	UPROPERTY(EditAnywhere, Category = "health")
+		TSubclassOf<class UUserWidget> HUDWidgetClass2;
+
+	UPROPERTY(EditAnywhere, Category = "health")
+		class UUserWidget* enemyHPWidget;
 
 };
