@@ -5,6 +5,7 @@
 #include "Blueprint/UserWidget.h"
 #include "UObject/ConstructorHelpers.h"
 #include "CanvasItem.h"
+#include "bullet.h"
 
 // Sets default values
 Aenemy01::Aenemy01()
@@ -64,3 +65,15 @@ void Aenemy01::enemyTakeDamage(float damage) {
 	updateEnemyHP(-damage);
 }
 
+void Aenemy01::shoot() {
+	UE_LOG(LogTemp, Warning, TEXT("ai shot"));
+
+	FTransform SpawnTransform = GetActorTransform();
+	//SpawnTransform.TransformPosition(FVector(0.0f, 0.0f, 100.0f));
+	//SpawnTransform.SetLocation(FollowCamera->GetComponentRotation().Vector() * 200.0f + GetActorLocation());
+	SpawnTransform.SetLocation(GetActorRightVector() * 60.0f + GetActorUpVector() * 40.0f + GetActorLocation());
+
+	FActorSpawnParameters SpawnParams;
+
+	GetWorld()->SpawnActor<Abullet>(BPbullet, SpawnTransform, SpawnParams);
+}

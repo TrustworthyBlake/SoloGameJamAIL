@@ -41,6 +41,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "health")
 	void enemyTakeDamage(float damage);
 
+	UFUNCTION(BlueprintCallable, Category = "shooting")
+	void shoot();
+
 
 protected:
 	// Called when the game starts or when spawned

@@ -56,7 +56,7 @@ public:
 	//UFUNCTION()
 	//void setPlayerDamage();
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable, Category = "health")
 	void playerTakeDamage(float damage);
 
 protected:
