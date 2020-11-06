@@ -71,7 +71,7 @@ void Aenemy01::shoot() {
 	FTransform SpawnTransform = GetActorTransform();
 	//SpawnTransform.TransformPosition(FVector(0.0f, 0.0f, 100.0f));
 	//SpawnTransform.SetLocation(FollowCamera->GetComponentRotation().Vector() * 200.0f + GetActorLocation());
-	SpawnTransform.SetLocation(GetActorRightVector() * 60.0f + GetActorUpVector() * 40.0f + GetActorLocation());
+	SpawnTransform.SetLocation(GetActorRightVector() * 40.0f + GetActorUpVector() * 40.0f + GetActorLocation());
 
 	FActorSpawnParameters SpawnParams;
 
