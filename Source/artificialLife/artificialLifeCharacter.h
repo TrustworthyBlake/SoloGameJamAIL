@@ -59,6 +59,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "health")
 	void playerTakeDamage(float damage);
 
+	// Gun muzzle offset from the camera location.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	FVector MuzzleOffset;
+
 protected:
 
 	void shoot();

@@ -29,4 +29,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// Projectile movement component.
+	//UPROPERTY(VisibleAnywhere, category = "movement")
+	//UProjectileMovementComponent* ProjectileMovementComponent;
+
+	void FireInDirection(const FVector& ShootDirection);
+
 };

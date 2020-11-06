@@ -18,6 +18,7 @@ Abullet::Abullet()
 	bulletMovement->InitialSpeed = 5000.f;
 	bulletMovement->MaxSpeed = 5000.f;
 	bulletMovement->ProjectileGravityScale = 0.0f;
+	bulletMovement->bRotationFollowsVelocity = true;
 }
 
 // Called when the game starts or when spawned
@@ -34,3 +35,6 @@ void Abullet::Tick(float DeltaTime)
 
 }
 
+void Abullet::FireInDirection(const FVector& ShootDirection) {
+	bulletMovement->Velocity = ShootDirection * bulletMovement->InitialSpeed;
+}
