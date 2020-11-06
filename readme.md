@@ -1,5 +1,8 @@
 # Rapid prototyping Solo Game Jam
-  
+Game name: A.I.L  
+Game engine: Unreal Engine 4.25.3  
+Game jam theme: Artificial Life  
+
 # Member
 	Andreas Blakli                     andrbl           andrbl@stud.ntnu.no	
 	
@@ -12,7 +15,7 @@ Link: N/A
 It's recomended that you just download the executable with the provided link above, but if you want to do it yourself this is how.  
 Download and install Unreal Engine 4.25.3.  
 git clone the repo  
-Open Unreal engine and in recent project choose browse and navigate to ViralColonizer.uproject  
+Open Unreal engine and in recent project choose browse and navigate to artificialLife.uproject  
 When unreal ask you to build the project press yes.  
 You need to go to unreal's market place and download Paragon Twinblast and add the assets to the project.  
 Then follow Unreal's documentation which is provided here: https://docs.unrealengine.com/en-US/Engine/Basics/Projects/Packaging/index.html  
