@@ -1,9 +1,6 @@
 # Visual Studio 2015 user specific files
 .vs/
 
-# CustomModelsContent
-.Content/ParagonTwinblast/
-
 # Compiled Object files
 *.slo
 *.lo
@@ -75,3 +72,6 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Dir
+/Content/ParagonTwinblast/*
