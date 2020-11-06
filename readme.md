@@ -9,7 +9,7 @@ Game jam theme: Artificial Life
 # How to run:
   
 Executeable file provided in google drive.  
-Link: N/A  
+Link: To teacher: See final report for link, due to compile time to make exec is extremely long on my system.  
   
 **How to: Compile the game yourself**  
 It's recomended that you just download the executable with the provided link above, but if you want to do it yourself this is how.  
