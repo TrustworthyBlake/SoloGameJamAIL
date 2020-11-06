@@ -1,6 +1,9 @@
 # Visual Studio 2015 user specific files
 .vs/
 
+# CustomModelsContent
+.Content/ParagonTwinblast/
+
 # Compiled Object files
 *.slo
 *.lo
